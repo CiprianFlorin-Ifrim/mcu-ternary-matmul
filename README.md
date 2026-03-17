@@ -170,6 +170,9 @@ path specialisation. `pad16` wrapper with `calloc` (no alignment guarantee).
 | swiglu_gate          |   64 |  128 | dense_pie    |   12.71 |
 | swiglu_up            |   64 |  128 | dense_pie    |   12.67 |
 
+<img width="947" height="468" alt="comparison_square_256x256" src="https://github.com/user-attachments/assets/9d91b9df-49e0-424f-a90b-12aae2f6d25e" />
+<img width="947" height="468" alt="comparison_mamba_state_16x16" src="https://github.com/user-attachments/assets/ff0d473c-ef62-4046-b217-5804eeced8e5" />
+
 **Notable finding:** dense_pie wins on 27 of 28 shapes regardless of sparsity
 level. The only exception is `model_output_proj` (cols=15, non-multiple-of-16)
 where the padding overhead inverts the result.
@@ -236,6 +239,8 @@ for cols=15. All matrices allocated with `aligned_alloc(16)` in
 | swiglu_gate          |   64 |  128 | dense_pie    |   10.05 |   -2.66µs|
 | swiglu_up            |   64 |  128 | dense_pie    |   10.01 |   -2.66µs|
 
+<img width="1067" height="587" alt="speedup_over_dense_c" src="https://github.com/user-attachments/assets/36244613-b685-44a6-badb-005d9fece1d4" />
+
 **Observations:**
 
 Shapes with cols=64 improved by roughly 1.6x due to the cached activation path
@@ -254,6 +259,8 @@ these shapes would be negligible in total runtime.
 ---
 
 ## Overall Findings
+
+<img width="1187" height="1162" alt="crossover_heatmap" src="https://github.com/user-attachments/assets/1f9fe38a-738d-4482-85a3-d829ebb2d367" />
 
 ### dense_pie dominates at all sparsity levels
 
