@@ -1,41 +1,16 @@
-# Prerequisites
-*.d
+# ESP-IDF build outputs
+build/
+managed_components/
+.cache/
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# Python
+__pycache__/
+*.pyc
+.venv/
 
-# Precompiled Headers
-*.gch
-*.pch
+# VSCode
+.vscode/
+.devcontainer/
 
-# Linker files
-*.ilk
-
-# Debugger Files
-*.pdb
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-# debug information files
-*.dwo
+# macOS
+.DS_Store
